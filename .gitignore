@@ -6,5 +6,5 @@ node_modules
 .env
 .example
 .prettierrc
-seeds/
+
 db/

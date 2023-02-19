@@ -1,10 +1,12 @@
-{{#each users as |user| }}
+{{#each notes as |note| }}
 <div class="row align-center mb-5">
   <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
+    <!--h2>{{{get_emoji}}} {{user.name}}</h2-->
+    <h2>{{note.subject}}</h2>
   </div>
   <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
+    <p>{{note.body}}</p>
+    <p>{{note.date_created}}</p>
   </div>
 </div>
 {{/each}}

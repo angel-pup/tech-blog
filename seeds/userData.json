@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Sal",
+    "email": "salizard@hotmail.com",
+    "password": "testPass123gestMechBleh"
+  },
+  {
+    "name": "Lernantino",
+    "email": "nantino@gmail.com",
+    "password": "testPass123gestMechBlah"
+  },
+  {
+    "name": "Amiko",
+    "email": "miko2k20@aol.com",
+    "password": "testPass123gestMechBl1h"
+  },
+  {
+    "name": "Jordan",
+    "email": "jorda99@msn.com",
+    "password": "testPass123gestMechBl2h"
+  },
+  {
+    "name": "Blake",
+    "email": "the_lake@yahoo.com",
+    "password": "testPass123gestMechBl3h"
+  }
+]

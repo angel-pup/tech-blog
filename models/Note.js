@@ -19,14 +19,24 @@ Note.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    user_id: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'user',
-      key: 'id'
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
+    date_created: {
+      type: DataTypes.DATE
     }
   },
   {
+    hooks: {
+      beforeCreate: async (note) => {
+        note.date_created = new Date();
+      }
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,

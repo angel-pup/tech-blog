@@ -10,14 +10,14 @@ const loginFormHandler = async (event) => {
     // Send the e-mail and password to the server
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ "email": login_email, "password": login_password }),
+      body: JSON.stringify({ email: login_email, password: login_password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      alert('Invalid Login');
     }
   }
 };
@@ -39,15 +39,14 @@ const signupFormHandler = async (event) => {
     // Send the e-mail and password to the server
       const response = await fetch('/api/users/signup', {
         method: 'POST',
-        body: JSON.stringify({ "email": signup_email, name, "password": signup_password }),
+        body: JSON.stringify({ email: signup_email, name, password: signup_password }),
         headers: { 'Content-Type': 'application/json' },
       });
       
       if (response.ok) {
         document.location.replace('/');
-        location.reload();
       } else {
-        alert(response.statusText);
+        alert('Invalid email or password does not meet length reqirements (minimum 8 characters)');
       }
     }
   }
