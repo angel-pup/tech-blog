@@ -19,6 +19,12 @@ Note.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    user_id: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'user',
+      key: 'id'
+    }
   },
   {
     sequelize,
