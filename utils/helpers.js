@@ -11,4 +11,7 @@ module.exports = {
 
     return `<span for="img" aria-label="book">${book}</span>`;
   },
+  dateFormat: (date) => {
+    return (new Date(date).toLocaleDateString('en-US')); 
+  }
 };

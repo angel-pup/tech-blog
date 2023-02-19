@@ -1,9 +1,13 @@
-<div class="colums">
-{{#each notes as |note| }}
-  <div class="column">
-    <h2>{{note.subject}}</h2>
-    <p>{{note.body}}</p>
-    <p>{{note.date_created}}</p>
+{{#each blogs as |blog| }}
+  <div class="card">
+    <div class="card-header">
+      <p>{{blog.user.name}}</p>
+      <p>{{blog.user.email}}</p>
+    </div>
+    <div class="card-content">
+      <h2>{{blog.subject}}</h2>
+      <p>{{blog.body}}</p>
+      <p>{{dateFormat blog.date_created}}</p>
+    </div>
   </div>
 {{/each}}
-</div>

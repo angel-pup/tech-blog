@@ -1,23 +1,28 @@
 const router = require('express').Router();
-const { Note } = require('../models');
+const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
 // TODO: rewrite home route rendering
 router.get('/', withAuth, async (req, res) => {
   try {
-    const noteData = await Note.findAll({
+    const blogData = await Blog.findAll({
+      include: [{
+        model: User,
+        required: true,
+        attributes: {
+          exclude: [ "password" ]
+        }
+      }],
       order: [['date_created', 'DESC']]
     });
 
-    const notes = noteData.map((note) => note.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    notes.forEach((note) => {
-      note.date_created = (new Date(note.date_created)).toLocaleDateString("en-US");
-    })
+    console.log(blogs);
 
     res.render('homepage', {
-      notes,
+      blogs,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });

@@ -11,10 +11,10 @@
   </head>
 
   <body>
-    <header class="has-background-info has-text-black p-2">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+    <header class="hero is-info has-text-white">
+      <nav class="navbar hero-body" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <div class="navbar-item is-size-4"> The Tech Blog</div>
+          <div class="navbar-item is-size-4 has-text-white"> The Tech Blog</div>
 
           <a
             role="button"
@@ -66,8 +66,7 @@
         </div>
       </nav>
     </header>
-    <main class="container columns mt-5">
-
+    <main class="columns">
       {{{body}}}
     </main>
     <footer>
@@ -77,11 +76,10 @@
     <!-- Only include the logout script if the user is logged in -->
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
-    {{/if}}
     <!-- Only include the logout script if the user is logged out -->
-    {{#unless logged_in}}
+    {{else}}
       <script src="/js/menu.js"></script>
-    {{/unless}}
+    {{/if}}
     <script src="/js/home.js"></script>
   </body>
 
