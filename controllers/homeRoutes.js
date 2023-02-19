@@ -6,11 +6,15 @@ const withAuth = require('../utils/auth');
 // TODO: rewrite home route rendering
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await Note.findAll({
-      order: [['date_created', 'DESC']],
+    const noteData = await Note.findAll({
+      order: [['date_created', 'DESC']]
     });
 
-    const notes = userData.map((note) => note.get({ plain: true }));
+    const notes = noteData.map((note) => note.get({ plain: true }));
+
+    notes.forEach((note) => {
+      note.date_created = (new Date(note.date_created)).toLocaleDateString("en-US");
+    })
 
     res.render('homepage', {
       notes,
@@ -30,6 +34,16 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  // If a session exists, redirect the request to the homepage
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;

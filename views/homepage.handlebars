@@ -1,12 +1,9 @@
+<div class="colums">
 {{#each notes as |note| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <!--h2>{{{get_emoji}}} {{user.name}}</h2-->
+  <div class="column">
     <h2>{{note.subject}}</h2>
-  </div>
-  <div class="col-md-6">
     <p>{{note.body}}</p>
     <p>{{note.date_created}}</p>
   </div>
-</div>
 {{/each}}
+</div>
