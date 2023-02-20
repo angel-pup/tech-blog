@@ -18,8 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
       const modal = $trigger.dataset.target;
       const $target = document.getElementById(modal);
-  
-      $trigger.addEventListener('click', () => {
+      
+      $trigger.addEventListener('click', async () => {
+        // const comments = await fetch(`/api/comments/${modal}`, {
+        //   method: 'GET',
+        //   headers: { 'Content-Type': 'text/plain' }
+        // })
+        //   .then(comments => comments)
+        //   .catch(
+        //     // do stuff for no comments
+        //   );
+        
         openModal($target);
       });
     });

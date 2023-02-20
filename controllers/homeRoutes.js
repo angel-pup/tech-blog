@@ -55,19 +55,27 @@ router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       where: { user_id: `${req.session.user_id}` },
-      include: [{
-        model: User,
-        required: true,
-        attributes: {
-          exclude: [ "password" ]
+      include: [
+        {
+          model: User,
+          required: true,
+          attributes: {
+            exclude: [ "password" ]
+          }
         },
-      }],
+        {
+          model: Comment,
+          required: true
+        }
+      ],
       order: [['date_created', 'DESC']]
     });
 
     const blogs = blogData
       .map((blog) => blog.get({ plain: true }));
 
+    console.log(blogs);
+    
     res.render('dashboard', {
       blogs,
       // Pass the logged in flag to the template
