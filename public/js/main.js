@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
+        el.classList.toggle('has-background-info-dark');
+        $target.classList.toggle('has-background-info-dark');
   
       });
     });

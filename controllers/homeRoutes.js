@@ -73,11 +73,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
       order: [['date_created', 'DESC']]
     });
 
+    const user = await User.findOne({
+      where: { id: `${req.session.user_id}`},
+      attributes: { exclude: ['password']},
+      raw: true
+    });
+
     const blogs = blogData
       .map((blog) => blog.get({ plain: true }));
 
     res.render('dashboard', {
       blogs,
+      user,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });

@@ -1,6 +1,9 @@
+<div class="level">
+</div>
 <div class="column is-half is-desktop"></div>
 <div class="column is-half">
   <div class="p-5">
+  <a class="level-item button is-large is-primary js-modal-trigger" data-target="new-blog-modal">Create New Blogpost</a>
     {{#each blogs as |blog|}}
       <div class="card">
         <header class="card-header">
@@ -35,13 +38,31 @@
             <time datetime={{dateTimeFormat blog.date_created}}>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
           </section>
           <footer class="modal-card-foot">
-            <button id="save" class="button is-success">Save changes</button>
-            <button id="cancel" class="button" data-target='{{blog.id}}'>Cancel</button>
+            <button class="button is-success save-edit" data-target='{{blog.id}}'>Save changes</button>
+            <button class="button cancel-edit" data-target='{{blog.id}}'>Cancel</button>
           </footer>
         </div>
       </div>
     {{/each}}
   </div>
 </div>
+
+<div class="modal" id='new-blog-modal'>
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head has-background-info-dark">
+      <textarea id='subject' class="textarea modal-card-title has-fixed-size" placeholder="Blog Subject" rows="1"></textarea>
+    </header>
+    <section class="modal-card-body">
+      <textarea id='body' class="textarea has-fixed-size" placeholder="Blog Body" rows="8"></textarea>
+      <p>via <a href="#">{{user.email}}</a></p>
+    </section>
+    <footer class="modal-card-foot">
+      <button id="save" class="button is-success">Save changes</button>
+      <button id="cancel" class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
+
 
 <script src="/js/dashboard.js"></script>
