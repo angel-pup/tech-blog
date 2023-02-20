@@ -73,7 +73,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
     console.log(req.session.user_id);
 
     res.render('dashboard', {
-      blogs
+      blogs,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
