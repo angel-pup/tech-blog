@@ -51,4 +51,33 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const query = req.session.user_id + " = user_id";
+
+    const blogData = await Blog.findAll({
+      where: { user_id: `${req.session.user_id}` },
+      include: [{
+        model: User,
+        required: true,
+        attributes: {
+          exclude: [ "password" ]
+        },
+      }],
+      order: [['date_created', 'DESC']]
+    });
+
+    const blogs = blogData
+      .map((blog) => blog.get({ plain: true }));
+
+    console.log(req.session.user_id);
+
+    res.render('dashboard', {
+      blogs
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

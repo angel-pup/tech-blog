@@ -1,13 +1,48 @@
-{{#each blogs as |blog| }}
-  <div class="card">
-    <div class="card-header">
-      <p>{{blog.user.name}}</p>
-      <p>{{blog.user.email}}</p>
-    </div>
-    <div class="card-content">
-      <h2>{{blog.subject}}</h2>
-      <p>{{blog.body}}</p>
-      <p>{{dateFormat blog.date_created}}</p>
-    </div>
+<div class="column is-half is-desktop"></div>
+<div class="column is-half">
+  <div class="p-5">
+    {{#each blogs as |blog|}}
+      <div class="card level js-modal-trigger" data-target='{{blog.id}}'> 
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <!-- TODO: Add user avators to media-connet -->
+              <p class="title is-5">{{blog.subject}}</p>
+              <p class="subtitle is-6">By {{blog.user.name}}</p>
+            </div>
+          </div>
+          <div class="content">
+            {{blog.body}}
+            <a href="#">{{blog.user.email}}</a>.</a>
+            <br>
+            <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id='{{blog.id}}'>
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <section class="modal-card-body">
+            <div class="is-outlined">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-5">{{blog.subject}}</p>
+                  <p class="subtitle is-6">By {{blog.user.name}}</p>
+                </div>
+              </div>
+              <div class="content">
+                {{blog.body}}
+                <a href="#" class="">{{blog.user.email}}</a>.</a>
+                <br>
+                <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    {{/each}}
   </div>
-{{/each}}
+</div>
+
+<script src="./js/homepage.js"></script>

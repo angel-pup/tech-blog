@@ -1,0 +1,47 @@
+<div class="column is-half is-desktop"></div>
+<div class="column is-half">
+  <div class="p-5">
+    {{#each blogs as |blog|}}
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            {{blog.subject}}
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            {{blog.body}}
+            <a href="#">{{blog.user.email}}</a>.</a>
+            <br>
+            <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <a href="#" id="edit" class="card-footer-item js-modal-trigger" data-target='{{blog.id}}'>Edit</a>
+          <a href="#" id="delete" class="card-footer-item">Delete</a>
+        </footer>
+      </div>
+
+      <div class="modal" id='{{blog.id}}'>
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <textarea id='subject' class="textarea modal-card-title has-fixed-size" placeholder="Blog Subject" rows="1">{{blog.subject}}</textarea>
+          </header>
+          <section class="modal-card-body">
+            <textarea id='body' class="textarea has-fixed-size" placeholder="Blog Body" rows="8">{{blog.body}}</textarea>
+            <a href="#">{{blog.user.email}}</a>.</a>
+            <br>
+            <time datetime={{dateTimeFormat blog.date_created}}>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+          </section>
+          <footer class="modal-card-foot">
+            <button id="save" class="button is-success">Save changes</button>
+            <button id="cancel" class="button" data-target='{{blog.id}}'>Cancel</button>
+          </footer>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<script src="/js/dashboard.js"></script>
