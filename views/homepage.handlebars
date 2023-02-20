@@ -24,7 +24,7 @@
         <div class="modal-background"></div>
         <div class="modal-card">
           <section class="modal-card-body">
-            <div class="is-outlined">
+            <div class="section">
               <div class="media">
                 <div class="media-content">
                   <p class="title is-5">{{blog.subject}}</p>
@@ -37,6 +37,17 @@
                 <br>
                 <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
               </div>
+            </div>
+            <div class="section">
+              {{#each blog.comments as |comment|}}
+                <div class="level">
+                  {{comment.message}}
+                  <a href="#" class="">{{comment.user.name}}</a>.</a>
+                  <br>
+                  <time datetime='{{comment.date_created}}'>{{timeFormat comment.date_created}} - {{dateFormat comment.date_created}}</time>
+                  <br>
+                </div>
+              {{/each}}
             </div>
           </section>
         </div>

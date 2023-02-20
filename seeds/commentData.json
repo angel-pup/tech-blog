@@ -1,0 +1,42 @@
+[
+  {
+    "message": "test message 1",
+    "blog_id": 2,
+    "user_id": 1
+  },
+  {
+    "message": "test message 2",
+    "blog_id": 3,
+    "user_id": 1
+  },
+  {
+    "message": "test message 3",
+    "blog_id": 2,
+    "user_id": 2
+  },
+  {
+    "message": "test message 4",
+    "blog_id": 2,
+    "user_id": 3
+  },
+  {
+    "message": "test message 5",
+    "blog_id": 4,
+    "user_id": 3
+  },
+  {
+    "message": "test message 6",
+    "blog_id": 5,
+    "user_id": 4
+  },
+  {
+    "message": "test message 7",
+    "blog_id": 5,
+    "user_id": 5
+  },
+  {
+    "message": "test message 8",
+    "blog_id": 5,
+    "user_id": 5
+  }
+]

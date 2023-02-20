@@ -22,7 +22,7 @@ const sess = {
   cookie: {
     expires: 60 * 1000 * 30
   }, // 30 minute timeout
-  resave: true,
+  resave: false,
   rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
