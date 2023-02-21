@@ -63,7 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     $close.addEventListener('click', () => {
       closeModal($target);
-      $target.querySelector('textarea').value = '';
+      const textarea = $target.querySelector('textarea');
+      if (!!textarea) {
+        $target.querySelector('textarea').value = '';
+      }
     });
   });
 });
