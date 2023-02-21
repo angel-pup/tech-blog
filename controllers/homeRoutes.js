@@ -33,12 +33,14 @@ router.get('/', async (req, res) => {
       raw: true
     });
 
+    console.log(req.session.logged_in)
+
     res.render('homepage', {
       blogs,
       user,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
+    
   } catch (err) {
     res.status(500).json(err);
   }
@@ -90,7 +92,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.render('dashboard', {
       blogs,
       user,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {

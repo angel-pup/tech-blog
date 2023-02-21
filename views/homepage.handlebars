@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <section class="modal" id='{{blog.id}}'>
+      <div class="modal" id='{{blog.id}}'>
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head has-background-info-dark">
@@ -47,7 +47,7 @@
                     <p class="card-header-title has-text-white">{{comment.user.name}}</p>
                   </header>
                   <div class="card-content">
-                    <div class="content overflow-special">
+                    <div class="content">
                       {{comment.message}}
                       <br>
                       <a href="#">{{comment.user.email}}</a></a>
@@ -59,8 +59,8 @@
               {{/each}}
             {{/isEmpty}}
           </div>
-          {{#if logged_in}}
-          <footer class="modal-card-foot is-justify-content-center is-align-items-center is-inline-block">
+          {{#if ../logged_in}}
+          <footer class="modal-card-foot is-inline-block">
             <textarea
               class="textarea has-fixed-size comment-add"
               placeholder="Enter your comment here"
@@ -71,7 +71,7 @@
           </footer>
           {{/if}}
         </div>
-      </section>
+      </div>
     {{/each}}
 </div>
 

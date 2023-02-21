@@ -15,7 +15,8 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      location.replace('/');
+      location.reload();
     } else {
       alert('Invalid Login');
     }
