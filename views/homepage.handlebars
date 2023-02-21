@@ -1,21 +1,21 @@
 <div class="column is-half is-desktop"></div>
 <div class="column is-half">
-  <div class="p-5">
+  <div id='{{user.id}}' class="me"></div>
     {{#each blogs as |blog|}}
-      <div class="card level js-modal-trigger" data-target='{{blog.id}}'> 
+      <br>
+      <div class="card js-modal-trigger" data-target='{{blog.id}}'> 
+        <header class="card-header has-background-info">
+          <p class="card-header-title has-text-white">
+            {{blog.subject}}
+          </p>
+        </header>
         <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <!-- TODO: Add user avators to media-connet -->
-              <p class="title is-5">{{blog.subject}}</p>
-              <p class="subtitle is-6">By {{blog.user.name}}</p>
-            </div>
-          </div>
           <div class="content">
             {{blog.body}}
-            <a href="#">{{blog.user.email}}</a>.</a>
             <br>
-            <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+            <a href="#">{{blog.user.email}}</a></a>
+            <br>
+            <p>via <span class="has-text-grey">{{blog.user.name}} </span> @ <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time></p>
           </div>
         </div>
       </div>
@@ -23,37 +23,53 @@
       <div class="modal" id='{{blog.id}}'>
         <div class="modal-background"></div>
         <div class="modal-card">
-          <section class="modal-card-body">
-            <div class="section">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-5">{{blog.subject}}</p>
-                  <p class="subtitle is-6">By {{blog.user.name}}</p>
-                </div>
+          <header class="modal-card-head has-background-info-dark">
+            <p class="modal-card-title has-text-white">{{blog.subject}}</p>
+          </header>
+          <div class="modal-card-body is-block">
+            <p>{{blog.body}}</p>
+            <a href="#">{{blog.user.email}}</a>
+            <br>
+            <p>via <span class="has-text-grey">{{blog.user.name}} </span> @ <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time></p>
+            {{#isEmpty blog.comments}}
+              <br>
+              <div class="card"> 
+                <header class="card-header has-background-info">
+                  <p class="card-header-title has-text-white">No Comments</p>
+                </header>
               </div>
-              <div class="content">
-                {{blog.body}}
-                <a href="#" class="">{{blog.user.email}}</a>.</a>
-                <br>
-                <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
-              </div>
-            </div>
-            <div class="section">
+            {{else}}
               {{#each blog.comments as |comment|}}
-                <div class="level">
-                  {{comment.message}}
-                  <a href="#" class="">{{comment.user.name}}</a>.</a>
-                  <br>
-                  <time datetime='{{comment.date_created}}'>{{timeFormat comment.date_created}} - {{dateFormat comment.date_created}}</time>
-                  <br>
+                <br>
+                <div class="card"> 
+                  <header class="card-header has-background-info">
+                    <p class="card-header-title has-text-white">{{comment.user.name}}</p>
+                  </header>
+                  <div class="card-content">
+                    <div class="content overflow-special">
+                      {{comment.message}}
+                      <br>
+                      <a href="#">{{comment.user.email}}</a></a>
+                      <br>
+                      <time datetime='{{comment.date_created}}'>{{timeFormat comment.date_created}} - {{dateFormat comment.date_created}}</time></p>
+                    </div>
+                  </div>
                 </div>
               {{/each}}
-            </div>
-          </section>
+            {{/isEmpty}}
+          </div>
+          <footer class="modal-card-foot is-justify-content-center is-align-items-center is-inline-block">
+            <textarea
+              class="textarea has-fixed-size comment-add"
+              placeholder="Enter your comment here"
+              rows="4"
+            ></textarea>
+            <br>
+            <button class="button submit-comment is-primary" data-target='{{user.id}}'>Submit Comment</button>
+          </footer>
         </div>
       </div>
     {{/each}}
-  </div>
 </div>
 
 <script src="./js/homepage.js"></script>

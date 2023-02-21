@@ -7,5 +7,10 @@ module.exports = {
   },
   timeFormat: (date) => {
     return (new Date(date).toLocaleTimeString('en-US')); 
+  },
+  isEmpty: (array, options) => {
+    if(!Array.isArray(array) || !array.length)
+      return options.fn(this);
+    return options.inverse(this);
   }
 };

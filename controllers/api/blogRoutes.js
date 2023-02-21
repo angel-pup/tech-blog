@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Blog.update({subject, body}, { where: { id: req.params.id } })
+  Blog.update(req.body, { where: { id: req.params.id } })
     .then(updated => {
       if (!updated[0]) {
         return res.status(404).json({ message: 'Blogpost not found' });

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   Comment.create(req.body)
     .then(comment => res.status(200).json(comment))
     .catch(err => res.status(400).json({ message: err.message }));

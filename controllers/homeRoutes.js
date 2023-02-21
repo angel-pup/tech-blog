@@ -27,10 +27,15 @@ router.get('/', withAuth, async (req, res) => {
 
     const blogs = blogData.map(blog => blog.get({ plain: true }));
 
-    console.log(blogs);
+    const user = await User.findOne({
+      where: { id: `${req.session.user_id}`},
+      attributes: { exclude: ['password']},
+      raw: true
+    });
 
     res.render('homepage', {
       blogs,
+      user,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
