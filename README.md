@@ -31,7 +31,7 @@ Vess Stewart-
 
 ### Code-Example
 
-[![5 Day Forecast Video](https://img.youtube.com/vi/QrouPMrfwDQ/0.jpg)](https://www.youtube.com/watch?v=QrouPMrfwDQ)
+[![Tech-Blog Video Link](https://img.youtube.com/vi/QrouPMrfwDQ/0.jpg)](https://www.youtube.com/watch?v=QrouPMrfwDQ)
 
 ## Live-Site
 
