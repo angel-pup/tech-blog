@@ -14,7 +14,14 @@
         </header>
         <div class="card-content">
           <div class="content">
-            {{blog.body}}
+            <pre 
+              style=
+                "white-space: pre-wrap;
+                white-space: -moz-pre-wrap;
+                white-space: -pre-wrap;
+                white-space: -o-pre-wrap;
+                word-wrap: break-word;"
+            >{{blog.body}}</pre>
             <a href="#">{{blog.user.email}}</a>.</a>
             <br>
             <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>

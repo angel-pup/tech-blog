@@ -11,8 +11,14 @@
         </header>
         <div class="card-content">
           <div class="content">
-            {{blog.body}}
-            <br>
+            <pre 
+              style=
+                "white-space: pre-wrap;
+                white-space: -moz-pre-wrap;
+                white-space: -pre-wrap;
+                white-space: -o-pre-wrap;
+                word-wrap: break-word;"
+            >{{blog.body}}</pre>
             <a href="#">{{blog.user.email}}</a></a>
             <br>
             <p>via <span class="has-text-grey">{{blog.user.name}} </span> @ <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time></p>
@@ -28,7 +34,7 @@
             <button class="delete" aria-label="close"></button>
           </header>
           <div class="modal-card-body is-block">
-            <p>{{blog.body}}</p>
+            <pre>{{blog.body}}</pre>
             <a href="#">{{blog.user.email}}</a>
             <br>
             <p>via <span class="has-text-grey">{{blog.user.name}} </span> @ <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time></p>
@@ -48,8 +54,14 @@
                   </header>
                   <div class="card-content">
                     <div class="content">
-                      {{comment.message}}
-                      <br>
+                      <pre 
+                        style=
+                          "white-space: pre-wrap;
+                          white-space: -moz-pre-wrap;
+                          white-space: -pre-wrap;
+                          white-space: -o-pre-wrap;
+                          word-wrap: break-word;"
+                      >{{comment.message}}</pre>
                       <a href="#">{{comment.user.email}}</a></a>
                       <br>
                       <time datetime='{{comment.date_created}}'>{{timeFormat comment.date_created}} - {{dateFormat comment.date_created}}</time></p>
