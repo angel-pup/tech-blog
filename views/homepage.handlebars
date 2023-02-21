@@ -1,6 +1,6 @@
 <div class="column is-half is-desktop"></div>
 <div class="column is-half">
-  <div id='{{user.id}}' class="me"></div>
+  <div id='uid_{{user.id}}' class="me"></div>
     {{#each blogs as |blog|}}
       <br>
       <div class="card js-modal-trigger" data-target='{{blog.id}}'> 
@@ -65,7 +65,7 @@
               rows="4"
             ></textarea>
             <br>
-            <button class="button submit-comment is-primary" data-target='{{user.id}}'>Submit Comment</button>
+            <button class="button submit-comment is-primary">Submit Comment</button>
           </footer>
         </div>
       </div>
