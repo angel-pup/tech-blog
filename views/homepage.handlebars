@@ -58,6 +58,7 @@
               {{/each}}
             {{/isEmpty}}
           </div>
+          {{#if logged_in}}
           <footer class="modal-card-foot is-justify-content-center is-align-items-center is-inline-block">
             <textarea
               class="textarea has-fixed-size comment-add"
@@ -67,6 +68,7 @@
             <br>
             <button class="button submit-comment is-primary">Submit Comment</button>
           </footer>
+          {{/if}}
         </div>
       </div>
     {{/each}}

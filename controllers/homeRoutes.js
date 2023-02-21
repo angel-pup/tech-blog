@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
 // TODO: rewrite home route rendering
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       include: [
