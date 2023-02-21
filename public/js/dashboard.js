@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    (document.querySelectorAll('.modal-background, .cancel-edit') || []).forEach(($close) => {
+    (document.querySelectorAll('.modal-background, .cancel-edit, .modal-card-head .delete') || []).forEach(($close) => {
       const $target = $close.closest('.modal');
       const $subject = document.getElementById(`${$target.id}`).querySelector('.subject-edit');
       const $body = document.getElementById($target.id).querySelector('.body-edit');
@@ -94,32 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // (document.querySelectorAll('.modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-    //   const $target = $close.closest('.modal');
-    //   const originalSubject = $close.closest('.subject-edit').value;
-    //   const originalBody = $close.closest('.body-edit').value;
-      
-    //   $close.addEventListener('click', () => {
-    //     closeModal($target);
-    //   });
-    // });
-  
-    // TODO: Add a keyboard event to close all modals (need to restructure to implement cancel data requery)
-    // document.addEventListener('keydown', (event) => {
-    //   const e = event || window.event;
-  
-    //   if (e.keyCode === 27) { // Escape key
-    //     closeAllModals();
-    //   }
-    // });
-
     document.querySelector('#cancel').addEventListener('click', () => {
       $newBlogBody.value = '';
       $newBlogSubject.value = '';
 
       closeModal($newBlogModal);
     });
-
 
     document.querySelector('#save').addEventListener('click', async () => {    
       const subject = $newBlogSubject.value;
