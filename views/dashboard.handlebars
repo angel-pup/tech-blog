@@ -1,7 +1,7 @@
 <div class="level">
 </div>
-<div class="column is-half is-desktop"></div>
-<div class="column is-half">
+<div class="column is-one-fourth is-desktop"></div>
+<div class="column">
   <br>
   <a class="level-item button is-large is-primary js-modal-trigger p-5" data-target="new-blog-modal">Create New Blogpost</a>
     {{#each blogs as |blog|}}
@@ -34,7 +34,7 @@
         </footer>
       </div>
 
-      <div class="modal" style="width: 96%;" id='{{blog.id}}'>
+      <div class="modal" id='{{blog.id}}'>
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head has-background-info-dark">
@@ -88,5 +88,6 @@
     </footer>
   </div>
 </div>
+<div class="column is-one-fourth"></div>
 
 <script src="/js/dashboard.js"></script>
