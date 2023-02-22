@@ -8,6 +8,6 @@ pre {
 @media screen and (max-width:769px) {
   .modal-card,
   .modal-content {
-      max-width: 96%;
+      width: 96%;
   }
 }
