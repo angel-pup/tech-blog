@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
           include: [{
             model: User,
             require: true,
-            attributes: { exclude: ['password']}
+            attributes: { exclude: ['password', 'id']}
           }]
         },
         {
