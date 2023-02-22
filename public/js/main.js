@@ -1,7 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  
+  // Progress bar shenanigans
+  let winHeight = $(window).height(), 
+    docHeight = $(document).height(),
+    progressBar = $('progress'),
+    max, value;
+
+  /* Set the max scrollable area */
+  max = docHeight - winHeight;
+  progressBar.attr('max', max);
   
     // Add a click event on each of them
     $navbarBurgers.forEach( el => {
@@ -18,5 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         $target.classList.toggle('has-background-info-dark');
   
       });
+    });
+
+
+    $(document).on('scroll', function(){
+      value = $(window).scrollTop();
+      progressBar.attr('value', value);
     });
 });
