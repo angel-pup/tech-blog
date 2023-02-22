@@ -9,5 +9,8 @@ pre {
   .modal-card,
   .modal-content {
       width: 96%;
+      position: fixed;
+      left: 50%;
+      right: 50%;
   }
 }
