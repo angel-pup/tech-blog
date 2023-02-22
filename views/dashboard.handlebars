@@ -1,34 +1,35 @@
 <div class="column is-2 is-desktop"></div>
 <div class="column">
   <br>
-  <a class="level-item button is-large is-primary js-modal-trigger p-5" data-target="new-blog-modal">Create New Blogpost</a>
+  <a class="level-item pt-5 px-5 mx-6 button is-large is-primary js-modal-trigger p-5" data-target="new-blog-modal">Create New Blogpost</a>
     {{#each blogs as |blog|}}
-      <br>
-      <div class="card">
-        <header class="card-header has-background-info">
-          <p class="card-header-title has-text-white">
-            {{blog.subject}}
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            <pre 
-              style=
-                "white-space: pre-wrap;
-                white-space: -moz-pre-wrap;
-                white-space: -pre-wrap;
-                white-space: -o-pre-wrap;
-                word-wrap: break-word;"
-            >{{blog.body}}</pre>
-            <a href="#">{{blog.user.email}}</a>.</a>
-            <br>
-            <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+      <div class="pt-5 px-5">
+        <div class="card">
+          <header class="card-header has-background-info">
+            <p class="card-header-title has-text-white">
+              {{blog.subject}}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <pre 
+                style=
+                  "white-space: pre-wrap;
+                  white-space: -moz-pre-wrap;
+                  white-space: -pre-wrap;
+                  white-space: -o-pre-wrap;
+                  word-wrap: break-word;"
+              >{{blog.body}}</pre>
+              <a href="#">{{blog.user.email}}</a>.</a>
+              <br>
+              <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time>
+            </div>
           </div>
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item js-modal-trigger" data-target='{{blog.id}}'>Edit</a>
+            <a href="#" class="card-footer-item delete-blog" data-target='{{blog.id}}'>Delete</a>
+          </footer>
         </div>
-        <footer class="card-footer">
-          <a href="#" class="card-footer-item js-modal-trigger" data-target='{{blog.id}}'>Edit</a>
-          <a href="#" class="card-footer-item delete-blog" data-target='{{blog.id}}'>Delete</a>
-        </footer>
       </div>
 
       <div class="modal" id='{{blog.id}}'>

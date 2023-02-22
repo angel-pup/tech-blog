@@ -2,26 +2,27 @@
 <div class="column">
   <div id='uid_{{user.id}}' class="me"></div>
     {{#each blogs as |blog|}}
-      <br>
-      <div class="card js-modal-trigger" data-target='{{blog.id}}'> 
-        <header class="card-header has-background-info">
-          <p class="card-header-title has-text-white">
-            {{blog.subject}}
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            <pre 
-              style=
-                "white-space: pre-wrap;
-                white-space: -moz-pre-wrap;
-                white-space: -pre-wrap;
-                white-space: -o-pre-wrap;
-                word-wrap: break-word;"
-            >{{blog.body}}</pre>
-            <a href="#">{{blog.user.email}}</a></a>
-            <br>
-            <p>via <span class="has-text-grey">{{blog.user.name}} </span> @ <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time></p>
+      <div class="pt-5 px-5">
+        <div class="card js-modal-trigger" data-target='{{blog.id}}'> 
+          <header class="card-header has-background-info">
+            <p class="card-header-title has-text-white">
+              {{blog.subject}}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <pre 
+                style=
+                  "white-space: pre-wrap;
+                  white-space: -moz-pre-wrap;
+                  white-space: -pre-wrap;
+                  white-space: -o-pre-wrap;
+                  word-wrap: break-word;"
+              >{{blog.body}}</pre>
+              <a href="#">{{blog.user.email}}</a></a>
+              <br>
+              <p>via <span class="has-text-grey">{{blog.user.name}} </span> @ <time datetime='{{blog.date_created}}'>{{timeFormat blog.date_created}} - {{dateFormat blog.date_created}}</time></p>
+            </div>
           </div>
         </div>
       </div>
