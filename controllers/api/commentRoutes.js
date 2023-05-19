@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:blog_id', (req, res) => {
-  Comment.findOne({ where: { blog_id: req.params.blog_id } })
+  Comment.findAll ({ where: { blog_id: req.params.blog_id } })
     .then(comment => {
       if (!comment) {
         return res.status(404).json({ message: 'Comment not found' });
