@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.post('/', (req, res) => {
   Blog.create(req.body)
@@ -29,7 +30,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(400).json({ message: err.message }));
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Blog.update(req.body, { where: { id: req.params.id } })
     .then(updated => {
       if (!updated[0]) {
@@ -40,7 +41,7 @@ router.put('/:id', (req, res) => {
     .catch(err => res.status(400).json({ message: err.message }));
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Blog.destroy({ where: { id: req.params.id } })
     .then(deleted => {
       if (!deleted) {
