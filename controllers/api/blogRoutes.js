@@ -7,6 +7,17 @@ router.post('/', (req, res) => {
     .catch(err => res.status(400).json({ message: err.message }))
 });
 
+router.get('/', (req, res) => {
+  Blog.findAll()
+    .then(blogposts => {
+      if (!blogposts) {
+        return res.status(404).json({ message: 'Blogposts not found'});
+      }
+      res.status(200).json(blogposts);
+    })
+    .catch(err => res.status(400).json({ message: err.message }));
+});
+
 router.get('/:id', (req, res) => {
   Blog.findByPk(req.params.id)
     .then(blogpost => {
