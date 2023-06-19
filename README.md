@@ -8,7 +8,7 @@
 - [Live Site](#Live-Site)
 
 ## Description
-Simple tech blog utilizing handlebars for the express view engine w/ middleware functions and express session utilized, along with a mysql sequelize ORM, in a MVC package.
+Simple MVC tech blog utilizing handlebars via express view engine w/ middleware functions and session utilization, along with a mysql/sequelize ORM.
 
 ## Usage
 - Login or Sign up and then log in (you may need to refresh the page).
