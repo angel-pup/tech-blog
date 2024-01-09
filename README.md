@@ -25,7 +25,7 @@ Vess Stewart-
 - Personal account features w/ login/signup/logout implemented
 - Session keeps track of your login, with an idle timeout to boot
 - Dashboard for making, editing, and deleting your own blog posts
-- Homepag shows posts everyone made, clicking on them shows it's comments and allows you to make comments
+- Homepage shows posts everyone made, clicking on them shows it's comments and allows you to make comments
 
 [GitHub repository](https://github.com/angel-pup/tech-blog)
 
